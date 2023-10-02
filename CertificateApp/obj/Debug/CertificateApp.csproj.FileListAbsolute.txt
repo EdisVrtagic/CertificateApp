@@ -14,4 +14,3 @@ D:\VS projekti\C# projekti\.NET Framework\CertificateApp\CertificateApp\obj\Debu
 D:\VS projekti\C# projekti\.NET Framework\CertificateApp\CertificateApp\obj\Debug\CertificateApp.exe
 D:\VS projekti\C# projekti\.NET Framework\CertificateApp\CertificateApp\obj\Debug\CertificateApp.pdb
 D:\VS projekti\C# projekti\.NET Framework\CertificateApp\CertificateApp\obj\Debug\CertificateApp.ParticipantControl.resources
-D:\VS projekti\C# projekti\.NET Framework\CertificateApp\CertificateApp\obj\Debug\CertificateApp.csproj.AssemblyReference.cache

@@ -16,7 +16,7 @@ namespace CertificateApp
         {
             InitializeComponent();
         }
-        private string _suppname, _suppindex, _suppcity; //Private fields to store certificate data
+        private string _suppname, _suppindex, _suppcity; //Private fields to store supplier data
         public event EventHandler RadioSelect; //RadioSelect handler
         //Property to get or set the Supplier and update the corresponding UI element
         public string NameSupplier

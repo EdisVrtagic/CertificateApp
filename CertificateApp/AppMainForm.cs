@@ -679,14 +679,14 @@ namespace CertificateApp
                             string partDep = personControl.DepartmentPerson;
                             string partEmail = $"{char.ToLower(personControl.NamePerson[0])}{personControl.NamePerson.Substring(1)}{char.ToLower(personControl.FirstNamePerson[0])}@mail.com";
                             //SQL query for inserting data into the ParticipantTbl table
-                            string insertQuery = "INSERT INTO ParticipantTbl (Part_Name, Part_Depart, Part_Email) VALUES (@Part_Name, @Part_Depart, @Part_Email)";
-                            using (SqlCommand insertCommand = new SqlCommand(insertQuery, Con))
+                            string query = "INSERT INTO ParticipantTbl (Part_Name, Part_Depart, Part_Email) VALUES (@Part_Name, @Part_Depart, @Part_Email)";
+                            using (SqlCommand cmd = new SqlCommand(query, Con))
                             {
                                 //Set parameters for the SQL query
-                                insertCommand.Parameters.AddWithValue("@Part_Name", partName);
-                                insertCommand.Parameters.AddWithValue("@Part_Depart", partDep);
-                                insertCommand.Parameters.AddWithValue("@Part_Email", partEmail);
-                                insertCommand.ExecuteNonQuery();
+                                cmd.Parameters.AddWithValue("@Part_Name", partName);
+                                cmd.Parameters.AddWithValue("@Part_Depart", partDep);
+                                cmd.Parameters.AddWithValue("@Part_Email", partEmail);
+                                cmd.ExecuteNonQuery();
                                 DynamicParticipantControl(); //Refresh the participant display by calling the DynamicParticipantControl function
                                 //Reset the search filter for person
                                 ResetSearchPersonFilter();
@@ -755,11 +755,11 @@ namespace CertificateApp
                 try
                 {
                     string query = "DELETE FROM ParticipantTbl WHERE Part_ID = @Part_ID";
-                    using (SqlCommand Cmd = new SqlCommand(query, Con))
+                    using (SqlCommand cmd = new SqlCommand(query, Con))
                     {
-                        Cmd.Parameters.AddWithValue("@Part_ID", partID);
+                        cmd.Parameters.AddWithValue("@Part_ID", partID);
                         Con.Open();
-                        Cmd.ExecuteNonQuery();
+                        cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception)
@@ -797,12 +797,12 @@ namespace CertificateApp
                 try
                 {
                     Con.Open();
-                    string insertQuery = "INSERT INTO CommentTbl (User_Comm, Text_Comm) VALUES (@User_Comm, @Text_Comm)";
-                    using (SqlCommand insertCommand = new SqlCommand(insertQuery, Con))
+                    string query = "INSERT INTO CommentTbl (User_Comm, Text_Comm) VALUES (@User_Comm, @Text_Comm)";
+                    using (SqlCommand cmd = new SqlCommand(query, Con))
                     {
-                        insertCommand.Parameters.AddWithValue("@User_Comm", UserAdLabel.Text);
-                        insertCommand.Parameters.AddWithValue("@Text_Comm", commentTextBox.Text);
-                        insertCommand.ExecuteNonQuery();
+                        cmd.Parameters.AddWithValue("@User_Comm", UserAdLabel.Text);
+                        cmd.Parameters.AddWithValue("@Text_Comm", commentTextBox.Text);
+                        cmd.ExecuteNonQuery();
                     }
                 }
                 catch (Exception)
